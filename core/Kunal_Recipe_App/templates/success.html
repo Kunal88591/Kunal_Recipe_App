@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receipe Submited Successfully</title>
+    <link rel="icon" type="image/png" href="{% static 'images/logo.png.webp' %}">
+
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #1e1e2f, #3a3a5a);
+            color: #f0f0f0;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, #ff7e5f, #fd3a69);
+            padding: 60px 0;
+            text-align: center;
+            color: white;
+            font-size: 3em;
+            font-weight: normal;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            position: relative;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        header img {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            width: 100px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .container {
+            background: linear-gradient(135deg, #292945, #232337);
+            padding: 40px;
+            max-width: 600px;
+            margin: 40px auto;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #ff6f6f;
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #bbb;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 18px;
+            color: #ff6f6f;
+            padding: 12px 25px;
+            border-radius: 8px;
+            background-color: #232337;
+            border: 1px solid #ff6f6f;
+            font-weight: 600;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        a:hover {
+            background-color: #ff6f6f;
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #1e1e2f;
+            color: #bbb;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: #ff6f6f;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                font-size: 2.2em;
+            }
+
+            header img {
+                width: 70px;
+                top: 10px;
+                left: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    {% load static %}
+    <header>
+        <img src="{% static 'images/logo.png.webp' %}" alt="Logo">
+        <h1>Receipe Submitted Successfully!</h1>
+    </header>
+
+    <div class="container">
+        <h1>Your receipe has been submitted successfully!</h1>
+        <p>You can now view or add more receipes.</p>
+        <a href="/receipes/">Go back to the receipe form</a>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Kunal's Receipe App. All rights reserved.</p>
+        <p>Developed with ❤️ by <a href="https://www.linkedin.com/in/kunal8859/">Kunal Meena</a></p>
+    </footer>
+</body>
+
+</html>

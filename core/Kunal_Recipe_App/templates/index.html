@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME</title>
+    <link rel="icon" type="image/png" href="{% static 'images/logo.png.webp' %}">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #1e1e2f, #3a3a5a);
+            color: #f0f0f0;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #ff7e5f, #fd3a69);
+            padding: 60px 0;
+            text-align: center;
+            color: white;
+            font-size: 2em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            position: relative;
+        }
+
+        header img {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        header .nav-links {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            display: flex;
+            gap: 20px;
+        }
+
+        header .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+
+        header .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 1100px;
+            margin: 40px auto;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-item {
+            min-width: 100%;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+        }
+
+        .carousel-item h2 {
+            font-size: 3em;
+            text-align: center;
+            margin-top: 140px;
+            color: #fff;
+        }
+
+        .carousel-item p {
+            text-align: center;
+            font-size: 1.2em;
+            color: #fff;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            transform: translateY(-50%);
+        }
+
+        .carousel-nav button {
+            background-color: rgba(0, 0, 0, 0.3);
+            color: white;
+            border: none;
+            font-size: 2em;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 50%;
+        }
+
+        .carousel-nav button:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .main-content {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, #292945, #232337);
+            border-radius: 8px;
+            margin-top: -40px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-content h2 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            color: #ff6f6f;
+        }
+
+        .main-content p {
+            font-size: 1.2em;
+            margin-bottom: 25px;
+            color: #ddd;
+        }
+
+        .main-button {
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #ff6f6f, #fd3a69);
+            color: white;
+            font-size: 1.2em;
+            font-weight: 600;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .main-button:hover {
+            background-color: #e15f56;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(255, 111, 111, 0.3);
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #1e1e2f;
+            color: #bbb;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: #ff6f6f;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                font-size: 1.8em;
+                padding: 20px;
+            }
+
+            header img {
+                width: 70px;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .carousel-item h2 {
+                font-size: 2.2em;
+                margin-top: 120px;
+            }
+
+            .main-content {
+                padding: 30px;
+            }
+
+            .main-button {
+                font-size: 1em;
+                padding: 10px 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    {% load static %}
+    <header>
+        <img src="{% static 'images/logo.png.webp' %}" alt="Logo">
+        <h1>Welcome to Kunal's Recipe App</h1>
+        <div class="nav-links">
+            <a href="/login/">Login</a>
+            <a href="/register/">Register</a>
+            <a href="/contact/">Contact Us</a>
+        </div>
+    </header>
+
+    <div class="carousel-container">
+        <div class="carousel" id="carousel">
+            <div class="carousel-item" style='background-image: url("{% static "images/title 3.jpg" %}")'>
+                <h2>Delicious Recipes Await You!</h2>
+                <p>Explore and share the most mouthwatering dishes from all around the world.</p>
+            </div>
+            <div class="carousel-item" style="background-image: url('{% static 'images/title 2.jpg' %}')">
+                <h2>Submit Your Recipe Today</h2>
+                <p>Share your cooking skills and inspire others with your unique creations!</p>
+            </div>
+            <div class="carousel-item" style="background-image: url('{% static 'images/title 6.jpg' %}')">
+                <h2>Join a Community of Food Lovers</h2>
+                <p>Discover, interact, and grow with a community passionate about food!</p>
+            </div>
+        </div>
+
+        <div class="carousel-nav">
+            <button id="prevBtn">&#10094;</button>
+            <button id="nextBtn">&#10095;</button>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <h2>Discover Amazing Recipes</h2>
+        <p>Find, share, and explore recipes from around the world. It's your go-to place for culinary inspiration!</p>
+        
+        <a href="/login/"><button class="main-button">Submit Your Recipe</button></a>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Kunal's Recipe App. All rights reserved.</p>
+        <p>Developed with ❤️ by <a href="https://www.linkedin.com/in/kunal8859/">Kunal Meena</a></p>
+    </footer>
+
+    <script>
+        
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-item');
+        const carousel = document.getElementById('carousel');
+        const totalSlides = slides.length;
+
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        });
+
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        });
+
+        function updateCarousel() {
+            carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }, 3000);  
+    </script>
+</body>
+
+</html>

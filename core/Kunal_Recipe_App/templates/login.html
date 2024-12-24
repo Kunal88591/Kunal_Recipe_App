@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    {% load static %}
+    <link rel="icon" type="image/png" href="{% static 'images/logo.png.webp' %}">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #1e1e2f, #3a3a5a);
+            color: #f0f0f0;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, #ff7e5f, #fd3a69);
+            padding: 60px 0;
+            text-align: center;
+            color: white;
+            font-size: 3em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            position: relative;
+        }
+
+        header img {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        form {
+            background: linear-gradient(135deg, #292945, #232337);
+            padding: 40px;
+            max-width: 600px;
+            margin: 40px auto;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        form:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+        }
+
+        form h2 {
+            font-size: 26px;
+            margin-bottom: 20px;
+            color: #ff6f6f;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        label {
+            font-weight: 600;
+            color: #bbb;
+            margin-bottom: 8px;
+            display: block;
+            font-size: 16px;
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 20px;
+            border: 1px solid #444;
+            border-radius: 8px;
+            font-size: 16px;
+            background: #1e1e2f;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            border-color: #ff6f6f;
+            background: #292945;
+            box-shadow: 0 0 10px rgba(255, 111, 111, 0.5);
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #ff6f6f, #fd3a69);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #fd3a69, #ff6f6f);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 111, 111, 0.5);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #1e1e2f;
+            color: #bbb;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: #ff6f6f;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .messages {
+            margin-bottom: 20px;
+        }
+
+        .alert {
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .alert-success {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        .alert-error {
+            background-color: #f44336;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="{% static 'images/logo.png.webp' %}" alt="Logo">
+        <h1>User Login</h1>
+    </header>
+
+    <div class="container">
+        <form method="POST" action="{% url 'login' %}">
+            {% csrf_token %}
+            <h2>Sign in to Your Account</h2>
+
+            {% if messages %}
+                <div class="messages">
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+            <button type="submit">Login</button>
+
+            <p>Don't have an account? <a href="{% url 'register' %}">Register here</a></p>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Kunal's Recipe App. All rights reserved.</p>
+        <p>Developed with ❤️ by <a href="https://www.linkedin.com/in/kunal8859/">Kunal Meena</a></p>
+    </footer>
+</body>
+
+</html>
